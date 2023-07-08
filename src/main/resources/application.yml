@@ -1,0 +1,15 @@
+spring:
+ application:
+   name: masterhr-discovery
+
+server:
+  port: ${PORT:8761}
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    registerWithEureka: false
+    fetch-registry: false
+  server: 
+    wait-time-in-ms-when-sync-empty: 0
